@@ -4,9 +4,6 @@ echo "########################################"
 echo "Installation Script Docker Centos 7"
 echo "########################################"
 
-
-#Nombre de directorio a crear(Ejemplo: CU_086_API ):
-
 user_current=$(whoami)
 
 if [ $user_current == 'root' ]; then
