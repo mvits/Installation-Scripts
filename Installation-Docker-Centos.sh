@@ -19,6 +19,8 @@ if [ $user_current == 'root' ]; then
 		systemctl start docker
 		systemctl enable docker
 		echo '{ "exec-opts": ["native.cgroupdriver=systemd"], "log-driver": "json-file", "log-opts": { "max-size": "100m" }, "storage-driver": "overlay2", "storage-opts": [ "overlay2.override_kernel_check=true" ] }' > /etc/docker/daemon.json
+		curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
 		usermod -aG docker $user
 		sudo -u $user -H bash -c "source ~/.bashrc; docker info"
 		echo " "
